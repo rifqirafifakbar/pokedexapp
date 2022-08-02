@@ -13,18 +13,20 @@ import { SavePokemons, VerifyPokemons } from "../../../utils/storage";
 import api from "../../../services/api";
 import Colors from "../../../styles/Colors";
 
+
+// init variable
+let pokemonsOriginal = [];
+let perPage = 16;
+let limit = 48; //default = 898
+let max = 0;
+
+
 export const Home = ({ history, ...props }) => {
+  const { query } = props.match.params;
   const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
   const [pokemonsTypes, setPokemonsTypes] = useState([]);
   const [select, setSelect] = useState('No filter');
-  const { query } = props.match.params;
-
-  let pokemonsOriginal = [];
-  const perPage = 16;
-  const limit = 48; 
-  let max = 0;
-
 
   const HandlerResult = (maximum, pokemons) => {
     max = maximum;
@@ -51,7 +53,6 @@ export const Home = ({ history, ...props }) => {
           item.name.includes(query.toLowerCase()) && item.typeFilter.includes(select) || item.number.includes(query)
         );
       });
-      
     }else {
       filterPokemons = pokemonsOriginal.filter((item) => {
         return (
@@ -162,7 +163,7 @@ export const Home = ({ history, ...props }) => {
 
       <Container fluid>
 
-        <Row className="align-items-center">
+        <Row className="align-items-center mb-3">
           <Col xs={12} sm={9}>
             <Search history={history} query={query} />
           </Col>
