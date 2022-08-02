@@ -1,0 +1,18 @@
+
+/* Modal Error */
+.modal-content {
+  background-color: var(--card_gray) !important;
+  color: white;
+
+  &.button {
+
+    background-color: var(--brand_dark);
+    border: none;
+
+    &:hover{
+      opacity: 0.9;
+      background-color: var(--brand_dark);
+      border: none;
+    }
+  }
+}
