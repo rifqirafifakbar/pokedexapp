@@ -51,9 +51,6 @@ export const Home = ({ history, ...props }) => {
           item.name.includes(query.toLowerCase()) && item.typeFilter.includes(select) || item.number.includes(query)
         );
       });
-
-      console.log(filterPokemons)
-
       
     }else {
       filterPokemons = pokemonsOriginal.filter((item) => {
