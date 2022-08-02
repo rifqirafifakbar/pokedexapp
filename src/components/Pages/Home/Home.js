@@ -157,6 +157,10 @@ export const Home = ({ history, ...props }) => {
     setSelect(event.target.value)
   }
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <div>
       <Header />
@@ -177,7 +181,7 @@ export const Home = ({ history, ...props }) => {
                 >
                   <option value='No filter'>No filter</option>
                   {pokemonsTypes.map((item,idx) => (
-                    <option value={item.name} key={idx}>{item.name}</option>
+                    <option value={item.name} key={idx}>{capitalizeFirstLetter(item.name)}</option>
                     ))
                   }
                 </select>
